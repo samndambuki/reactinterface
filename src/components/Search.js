@@ -3,6 +3,8 @@
 
 // }
 
+import { BiSearch, BiCaretDown } from "react-icons/bi"
+
 const Search = () => {
     return(
         <div className="py-5">
@@ -25,3 +27,5 @@ const Search = () => {
     </div>
     )
 }
+
+export default Search
