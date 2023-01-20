@@ -13,8 +13,8 @@ function App() {
     .then(response => response.json())
     .then(data=>{
       setAppointmentList(data)
-    },[]);
-  })
+    });
+  },[])
 
   useEffect(()=>{
     fetchData()
@@ -26,11 +26,17 @@ function App() {
         <BiCalendar className="inline-block text-red-400 align-top"/>Your Appointments</h1>
         <AddAppointment/>
         <Search/>
+
         <ul className="divide-y divide-gray-200">
           {appointmentList
           .map(appointment => (
             <AppointmentInfo key={appointment.id}
             appointment={appointment}
+            onDeleteAppointment={
+              appointmentId => 
+              setAppointmentList(appointmentList.filter(appointment => 
+              appointment.id === appointmentId ))
+            }
             />
           ))}
         </ul>
